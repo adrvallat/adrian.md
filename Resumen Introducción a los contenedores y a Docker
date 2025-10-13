@@ -1,0 +1,27 @@
+“Introducción a los contenedores y a Docker”
+
+Virtualización: permite ejecutar varios sistemas en una misma máquina (hipervisores como VMware o VirtualBox).
+
+Contenedores: aíslan procesos usando el mismo sistema operativo del anfitrión. Son más ligeros y rápidos que las máquinas virtuales.
+
+Ejemplos históricos:
+
+chroot (Unix, 1982)
+
+Jails (FreeBSD, 1999)
+
+LXC / LXD (Linux Containers, 2008)
+
+Tecnologías base en Linux:
+
+Namespaces: aíslan procesos.
+
+Cgroups: limitan recursos.
+
+Docker: sistema de contenedores Linux basado en estas tecnologías.
+
+Usa una arquitectura con cliente, servidor (Docker Host) y registro de imágenes (Docker Hub).
+
+Disponible en Linux, Windows (WSL2/Hyper-V) y MacOS (Hyperkit).
+
+Versiones: Docker CE (gratuita) y Docker EE (empresarial).
