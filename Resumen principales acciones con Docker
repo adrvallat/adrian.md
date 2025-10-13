@@ -1,0 +1,89 @@
+La unidad enseña los comandos básicos de Docker para manejar imágenes y contenedores desde la línea de comandos (sin interfaz gráfica).
+
+ Conceptos clave
+
+Imagen: plantilla de solo lectura usada para crear contenedores.
+
+Contenedor: instancia ejecutable de una imagen (puede arrancarse, pararse y eliminarse).
+
+Almacenamiento:
+
+Imágenes: /var/lib/docker/overlay2
+
+Contenedores: /var/lib/docker/containers
+
+ Docker Hub
+
+Es el registro oficial de imágenes Docker (públicas o privadas).
+Comando para buscar o descargar imágenes:
+
+docker pull nombre_imagen
+
+ Comandos principales
+ Crear y ejecutar contenedores
+docker run [opciones] imagen [comando]
+
+
+Ejemplo:
+
+docker run hello-world
+
+
+Crea y arranca un contenedor desde la imagen hello-world.
+
+ Listar contenedores
+docker ps        # Contenedores activos
+docker ps -a     # Todos los contenedores
+
+ Iniciar, parar o reiniciar
+docker start/stop/restart nombre_o_id
+
+ Ver detalles de un contenedor
+docker inspect nombre_o_id
+
+ Ejecutar comandos dentro de un contenedor
+docker exec -it nombre bash
+
+ Copiar archivos
+docker cp origen destino
+
+
+Ejemplo:
+docker cp ./fichero contenedor:/tmp
+
+ Ver logs
+docker logs nombre
+
+ Renombrar contenedores
+docker rename viejo_nombre nuevo_nombre
+
+ Ejemplos útiles
+
+Acceder a una terminal Ubuntu:
+
+docker run -it --name=miUbuntu ubuntu /bin/bash
+
+
+Contenedor temporal que se borra al salir:
+
+docker run -it --rm ubuntu:14.04 /bin/bash
+
+
+Servidor web Nginx con puerto mapeado:
+
+docker run -d -p 1200:80 nginx
+
+
+Variable de entorno:
+
+docker run -it -e MENSAJE=HOLA ubuntu bash
+
+ Conclusión
+
+El documento enseña a:
+
+Crear, ejecutar y gestionar contenedores.
+
+Usar comandos básicos de administración (run, ps, exec, logs, etc.).
+
+Conocer la estructura de Docker y su flujo de trabajo con imágenes y contenedores.
