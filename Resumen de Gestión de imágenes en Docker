@@ -1,0 +1,59 @@
+Esta unidad explica cómo gestionar imágenes Docker, desde listarlas y descargarlas hasta crear y subir imágenes personalizadas.
+
+ Comandos principales
+ Listar y buscar imágenes
+docker images                 # Ver imágenes locales
+docker images ubuntu:14.04    # Filtrar por nombre/versión
+docker search ubuntu          # Buscar en Docker Hub
+
+ Descargar y eliminar
+docker pull alpine:3.10       # Descargar imagen
+docker history nginx          # Ver historial
+docker rmi ubuntu:14.04       # Eliminar imagen
+docker system prune -a        # Limpiar todo
+
+ Contenedores relacionados
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+
+ Crear y guardar imágenes
+
+Crear una imagen desde un contenedor:
+
+docker commit -a "autor" -m "comentario" contenedor usuario/imagen:version
+docker tag usuario/imagen:version usuario/imagen:latest
+
+
+Guardar y cargar:
+
+docker save -o copia.tar imagen
+docker load -i copia.tar
+
+ Subir a Docker Hub
+docker login
+docker push usuario/imagen
+
+ Dockerfile básico
+FROM ubuntu:latest
+RUN apt update && apt install -y nano
+CMD /bin/bash
+
+
+Construir imagen:
+
+docker build -t ubuntunano ./
+
+
+Comandos útiles:
+FROM, RUN, CMD, EXPOSE, COPY, ENTRYPOINT, USER, WORKDIR, ENV.
+
+ Consejos
+
+Usa imágenes base ligeras (ej. Alpine).
+
+Agrupa comandos en un solo RUN.
+
+Limpia cachés con:
+
+rm -rf /var/lib/apt/lists/*
+apt-get clean
