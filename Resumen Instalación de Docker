@@ -31,7 +31,7 @@ Habilitar al inicio:
 
 sudo systemctl enable docker
 
-🪟 Windows
+ Windows
 
 Windows Pro/Server: activar Hyper-V.
 
@@ -50,7 +50,7 @@ Descargar el paquete .dmg desde Docker Hub e instalar Docker Desktop.
 
  Play with Docker
 
-Probar Docker online en 👉 https://labs.play-with-docker.com/
+Probar Docker online en  https://labs.play-with-docker.com/
 
  Conclusión
 
